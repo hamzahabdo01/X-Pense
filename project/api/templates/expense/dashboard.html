@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+  Homepage
+{% endblock %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h1 class="text-2xl font-bold mb-4">Your Expenses</h1>
+    <ul class="list-disc pl-6 space-y-10">
+      {% for expense in expenses %}
+        <li class="mb-2">
+          <strong>{{ expense.date }}</strong> - {{ expense.category.name }}: ${{ expense.amount }}
+          <a href="{% url 'expense:delete' expense.id %}" class="bg-red-500 rounded-lg px-5 py-3 text-white ml-10">Delete</a>
+          <a href="{% url 'expense:edit' expense.id %}" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Edit</a>
+        </li>
+      {% empty %}
+        <li>No expenses found.</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h1 class="text-2xl font-bold mb-4">Welcome to the Expense Tracker</h1>
+    <p class="text-lg">Please log in to view your expenses.</p>
+  {% endif %}
+{% endblock %}
