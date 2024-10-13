@@ -24,17 +24,44 @@ function ExpenseLine({ expenses, categories }) {
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 tension: 0.4,
-                
             },
         ],
+    };
+
+    const options = {
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        family: 'Space Grotesk, sans-serif',
+                    },
+                },
+            },
+        },
+        scales: {
+            x: {
+                ticks: {
+                    font: {
+                        family: 'Space Grotesk, sans-serif',
+                    },
+                },
+            },
+            y: {
+                ticks: {
+                    font: {
+                        family: 'Space Grotesk, sans-serif',
+                    },
+                },
+            },
+        },
     };
 
     return (
         loading ? (
             <LoadingIndicator/>
         ) : (
-            <div style={{ width: '700px', height: '400px' }}>
-                <Line data={data} />
+            <div style={{ width: '550px', height: '250px', fontFamily: 'Space Grotesk, sans-serif' }}>
+                <Line data={data} options={options} />
             </div>
         )
     );

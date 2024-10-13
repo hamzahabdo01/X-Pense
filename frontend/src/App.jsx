@@ -23,9 +23,15 @@ function RegisterAndLogout() {
 function App() {
   const location = useLocation();
 
+  const hideNavBarPaths = ["/dashboard", "/edit-expense"];
+
+  const shouldHideNavBar = hideNavBarPaths.some(path =>
+    location.pathname.startsWith(path)
+  );
+
   return (
     <>
-      {location.pathname !== "/dashboard" && <NavBar />}
+      {!shouldHideNavBar && <NavBar />}
       <Routes>
         <Route
           path="/dashboard"

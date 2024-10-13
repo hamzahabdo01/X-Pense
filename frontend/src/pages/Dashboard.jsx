@@ -134,20 +134,20 @@
 //         <div className="p-8 bg-teal-100 min-h-screen">
 //             <div className="max-w-7xl mx-auto">
                 
-//                 {/* Overview Section */}
-//                 <div className="bg-white p-8 rounded-2xl shadow-xl mb-12">
-//                     <h3 className="text-2xl font-semibold text-gray-800 mb-6">Overview</h3>
-//                     <div className="flex space-x-96 items-center">
-//                         <div className="w-1/3 p-4">
-//                             {/* Line Chart */}
-//                             <ExpenseLine expenses={expenses} categories={categories} />
-//                         </div>
-//                         <div className="w-1/3 p-4">
-//                             {/* Doughnut Chart */}
-//                             <ExpenseChart expenses={expenses} categories={categories} />
-//                         </div>
-//                     </div>
-//                 </div>
+                // {/* Overview Section */}
+                // <div className="bg-white p-8 rounded-2xl shadow-xl mb-12">
+                //     <h3 className="text-2xl font-semibold text-gray-800 mb-6">Overview</h3>
+                //     <div className="flex space-x-96 items-center">
+                //         <div className="w-1/3 p-4">
+                //             {/* Line Chart */}
+                //             <ExpenseLine expenses={expenses} categories={categories} />
+                //         </div>
+                //         <div className="w-1/3 p-4">
+                //             {/* Doughnut Chart */}
+                //             <ExpenseChart expenses={expenses} categories={categories} />
+                //         </div>
+                //     </div>
+                // </div>
 
 //                 {/* Expense List */}
 //                 <div className="grid grid-cols-1 gap-6 mt-8">
@@ -170,6 +170,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faPlus, faSignOutAlt, faDollarSign, faChartBar, faList, faEdit, faTrash, faFilter } from "@fortawesome/free-solid-svg-icons"
 import api from "../api"
 import { Link, useParams } from "react-router-dom"
+import ExpenseChart from '../components/ExpenseChart'; // Doughnut chart
+import ExpenseLine from '../components/ExpenseLine';   // Line chart
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("dashboard")
@@ -186,16 +188,16 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-teal-300">
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-md">
+      <aside className="w-64 bg-teal-100 shadow-md">
         <div className="p-4">
           <h1 className="text-2xl font-bold text-gray-800">X-Pense</h1>
         </div>
         <nav className="mt-6">
           <button
             className={`w-full flex items-center px-4 py-2 text-left ${
-              activeTab === "dashboard" ? "bg-gray-200 text-gray-800" : "text-gray-600 hover:bg-gray-100"
+              activeTab === "dashboard" ? "bg-teal-200 text-gray-800" : "text-gray-600 hover:bg-teal-300"
             }`}
             onClick={() => setActiveTab("dashboard")}
           >
@@ -204,7 +206,7 @@ export default function Dashboard() {
           </button>
           <button
             className={`w-full flex items-center px-4 py-2 text-left ${
-              activeTab === "create-expense" ? "bg-gray-200 text-gray-800" : "text-gray-600 hover:bg-gray-100"
+              activeTab === "create-expense" ? "bg-teal-200 text-gray-800" : "text-gray-600 hover:bg-teal-300"
             }`}
             onClick={() => setActiveTab("create-expense")}
           >
@@ -221,7 +223,7 @@ export default function Dashboard() {
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto p-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">{activeTab === "dashboard" ? "Dashboard" : "Create Expense"}</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-8"></h2>
           {renderContent()}
         </div>
       </main>
@@ -300,7 +302,7 @@ function DashboardContent() {
   return (
     <div className="space-y-6">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-teal-100 p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-medium text-gray-500">Total Expenses</h3>
             <FontAwesomeIcon icon={faDollarSign} className="h-4 w-4 text-gray-400" />
@@ -308,7 +310,7 @@ function DashboardContent() {
           <div className="text-2xl font-bold">${totalExpenses.toFixed(2)}</div>
           <p className="text-xs text-gray-500">Filtered total</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-teal-100 p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-medium text-gray-500">Average Expense</h3>
             <FontAwesomeIcon icon={faChartBar} className="h-4 w-4 text-gray-400" />
@@ -316,7 +318,7 @@ function DashboardContent() {
           <div className="text-2xl font-bold">${averageExpense.toFixed(2)}</div>
           <p className="text-xs text-gray-500">Per filtered expense</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-teal-100 p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-medium text-gray-500">Expense Categories</h3>
             <FontAwesomeIcon icon={faList} className="h-4 w-4 text-gray-400" />
@@ -326,7 +328,23 @@ function DashboardContent() {
         </div>
       </div>
 
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                {/* Overview Section */}
+                <div className="bg-teal-100 p-8 mb-12 ">
+                    <h3 className="text-2xl font-semibold text-gray-800 mb-6">Overview</h3>
+                    <div className="flex space-x-64 items-center ">
+                        <div className="w-1/3 p-4">
+                            {/* Line Chart */}
+                            <ExpenseLine expenses={expenses} categories={categories} />
+                        </div>
+                        <div className="w-1/3 p-4">
+                            {/* Doughnut Chart */}
+                            <ExpenseChart expenses={expenses} categories={categories} />
+                        </div>
+                    </div>
+                </div>
+
+
+      <div className="bg-teal-100 shadow-md rounded-lg overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-800">Recent Expenses</h3>
           <button
@@ -368,7 +386,7 @@ function DashboardContent() {
                   <p className="text-sm text-gray-500">{getCategoryName(expense.category)}</p>
                 </div>
                 <div className="flex items-center">
-                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-teal-600 text-white ">
                     ${parseFloat(expense.amount).toFixed(2)}
                   </span>
                   <Link to={`/edit-expense/${expense.id}`} className="ml-4 text-indigo-600 hover:text-indigo-900">
@@ -452,53 +470,55 @@ function CreateExpense() {
     };
 
     return (
-        <div className="bg-white shadow-md rounded-lg p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                    {isEditMode ? "Edit Expense" : "Create an Expense"}
-                </h2>
-                <input
-                    type="text"
-                    id="amount"
-                    name="amount"
-                    required
-                    onChange={(e) => setAmount(e.target.value)}
-                    value={amount}
-                    placeholder="Enter amount"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                />
-                <input
-                    type="text"
-                    id="description"
-                    name="description"
-                    required
-                    onChange={(e) => setDescription(e.target.value)}
-                    value={description}
-                    placeholder="Enter description"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                />
-                <select
-                    id="category"
-                    name="category"
-                    required
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                >
-                    <option value="">Select a category</option>
-                    {categories.map((cat) => (
-                        <option key={cat.id} value={cat.id}>
-                            {cat.name}
-                        </option>
-                    ))}
-                </select>
-                <button
-                    type="submit"
-                    className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                    {isEditMode ? "Update Expense" : "Submit"}
-                </button>
-            </form>
-        </div>
-    );
+      <div className="bg-teal-100 shadow-lg rounded-xl p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+              <h2 className="text-3xl font-semibold text-gray-900 mb-6">
+                  {isEditMode ? "Edit Expense" : "Create an Expense"}
+              </h2>
+              <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  required
+                  onChange={(e) => setAmount(e.target.value)}
+                  value={amount}
+                  placeholder="Enter amount"
+                  className="w-full px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+              />
+              <input
+                  type="text"
+                  id="description"
+                  name="description"
+                  required
+                  onChange={(e) => setDescription(e.target.value)}
+                  value={description}
+                  placeholder="Enter description"
+                  className="w-full px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+              />
+              <select
+                  id="category"
+                  name="category"
+                  required
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="w-full bg-white px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+              >
+                  <option value="" disabled>
+                      Select a category
+                  </option>
+                  {categories.map((cat) => (
+                      <option key={cat.id} value={cat.id}>
+                          {cat.name}
+                      </option>
+                  ))}
+              </select>
+              <button
+                  type="submit"
+                  className="w-full bg-teal-500 text-white py-3 px-5 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50 transition duration-200"
+              >
+                  {isEditMode ? "Update Expense" : "Submit"}
+              </button>
+          </form>
+      </div>
+  );
 }

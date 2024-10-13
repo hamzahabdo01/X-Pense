@@ -102,7 +102,7 @@ function CreateExpense() {
                     required
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-6 py-4 border border-teal-500 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    className="w-full bg-white px-6 py-4 border border-teal-500 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 >
                     <option value="">Select a category</option>
                     {categories.map((cat) => (

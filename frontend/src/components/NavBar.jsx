@@ -1,11 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBar() {
-  const location = useLocation();
-  const dashboardPaths = ["/login", "/register","/"];
-  const isAuthPage = dashboardPaths.some((path) =>
-    location.pathname.endsWith(path)
-  );
 
   return (
     <div className="flex justify-center relative top-6">
@@ -15,7 +10,6 @@ function NavBar() {
             <Link to="/" className="text-white">X-Pense</Link>
           </div>
           <div className="space-x-7 mr-8">
-            {isAuthPage ? (
               <>
                 <Link to="/login" className="text-white">
                   LOGIN
@@ -24,19 +18,6 @@ function NavBar() {
                   REGISTER
                 </Link>
               </>
-            ) : (
-              <>
-                <Link to="/dashboard" className="text-white">
-                  DASHBOARD
-                </Link>
-                <Link to="/create-expense" className="text-white">
-                  CREATE EXPENSE  
-                </Link>
-                <Link to="/logout" className="text-white">
-                  LOGOUT
-                </Link>
-              </>
-            )}
           </div>
         </div>
       </nav>
