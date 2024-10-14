@@ -12,7 +12,7 @@ function Home() {
                     <div>
                     <a
                         href="/register"
-                        className="bg-teal-500 text-white px-6 py-3 rounded-full text-lg hover:bg-teal-600"
+                        className="bg-teal-600 text-white px-6 py-3 rounded-full text-lg hover:bg-teal-700"
                     >
                         Get Started
                     </a>

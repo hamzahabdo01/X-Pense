@@ -4,7 +4,7 @@ function NavBar() {
 
   return (
     <div className="flex justify-center relative top-6">
-      <nav className="bg-teal-500 p-4 rounded-full w-3/4">
+      <nav className="bg-teal-600 p-4 rounded-full w-3/4">
         <div className="flex justify-between items-center">
           <div className="text-black text-lg font-semibold ml-8">
             <Link to="/" className="text-white">X-Pense</Link>

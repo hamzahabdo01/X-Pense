@@ -27,7 +27,7 @@ function ExpenseChart({ expenses, categories }) {
                     '#14b8a6',  // Dark teal
                     '#99f6e4',  // Black
                 ],
-                borderWidth: 1,  // Set border width to 0
+                borderWidth: 0.4,  // Set border width to 0
                 borderColor: 'black',
                 hoverOffset: 10
             }

@@ -1,191 +1,25 @@
-// // import { useState, useEffect } from "react";
-// // import api from "../api";
-// // import Expense from '../components/Expense';
-// // import ExpenseChart from '../components/ExpenseChart'; // Doughnut chart
-// // import ExpenseLine from '../components/ExpenseLine';   // Line chart
-
-// // function Dashboard() {
-// //     const [expenses, setExpenses] = useState([]);
-// //     const [categories, setCategories] = useState([]);
-
-// //     useEffect(() => {
-// //         getExpenses();
-// //         getCategories();
-// //     }, []);
-
-// //     const getExpenses = () => {
-// //         api
-// //             .get("/api/expenses/")
-// //             .then((res) => res.data)
-// //             .then((data) => {
-// //                 setExpenses(data);
-// //             })
-// //             .catch((err) => alert(err));
-// //     };
-
-// //     const getCategories = () => {
-// //         api
-// //             .get("/api/categories/")
-// //             .then((res) => res.data)
-// //             .then((data) => {
-// //                 setCategories(data);
-// //             })
-// //             .catch((err) => alert(err));
-// //     };
-
-// //     const deleteExpense = (id) => {
-// //         api
-// //             .delete(`/api/expenses/delete/${id}/`)
-// //             .then((res) => {
-// //                 if (res.status === 204) {
-// //                     alert("Expense deleted!");
-// //                     getExpenses();
-// //                 } else {
-// //                     alert("Failed to delete expense.");
-// //                 }
-// //             })
-// //             .catch((error) => alert(error));
-// //     };
-
-// //     return (
-// //         <div className="p-8 bg-teal-100 min-h-screen">
-// //             <div className="max-w-7xl mx-auto">
-// //                 <h2 className="text-4xl font-extrabold text-teal-800 mb-8 text-center">Expenses Dashboard</h2>
-                
-// //                 {/* Overview Section */}
-// //                 <div className="bg-white p-8 rounded-2xl shadow-xl mb-12">
-// //                     <h3 className="text-2xl font-semibold text-gray-800 mb-6">Overview</h3>
-// //                     <div className="flex space-x-20 items-center">
-// //                         <div className="w-1/2 p-4">
-// //                             {/* Line Chart */}
-// //                             <ExpenseLine expenses={expenses} categories={categories} />
-// //                         </div>
-// //                         <div className="w-1/2 p-4">
-// //                             {/* Doughnut Chart */}
-// //                             <ExpenseChart expenses={expenses} categories={categories} />
-// //                         </div>
-// //                     </div>
-// //                 </div>
-
-// //                 {/* Expense List */}
-// //                 <div className="grid grid-cols-1 gap-6 mt-8">
-// //                     {expenses.map((expense) => (
-// //                         <Expense key={expense.id} expense={expense} onDelete={deleteExpense} />
-// //                     ))}
-// //                 </div>
-// //             </div>
-// //         </div>
-// //     );
-// // }
-
-// // export default Dashboard;
-
-
-// import { useState, useEffect } from "react";
-// import api from "../api";
-// import Expense from '../components/Expense';
-// import ExpenseChart from '../components/ExpenseChart'; // Doughnut chart
-// import ExpenseLine from '../components/ExpenseLine';   // Line chart
-
-// function Dashboard() {
-//     const [expenses, setExpenses] = useState([]);
-//     const [categories, setCategories] = useState([]);
-
-//     useEffect(() => {
-//         getExpenses();
-//         getCategories();
-//     }, []);
-
-//     const getExpenses = () => {
-//         api
-//             .get("/api/expenses/")
-//             .then((res) => res.data)
-//             .then((data) => {
-//                 setExpenses(data);
-//             })
-//             .catch((err) => alert(err));
-//     };
-
-//     const getCategories = () => {
-//         api
-//             .get("/api/categories/")
-//             .then((res) => res.data)
-//             .then((data) => {
-//                 setCategories(data);
-//             })
-//             .catch((err) => alert(err));
-//     };
-
-//     const deleteExpense = (id) => {
-//         api
-//             .delete(`/api/expenses/delete/${id}/`)
-//             .then((res) => {
-//                 if (res.status === 204) {
-//                     alert("Expense deleted!");
-//                     getExpenses();
-//                 } else {
-//                     alert("Failed to delete expense.");
-//                 }
-//             })
-//             .catch((error) => alert(error));
-//     };
-
-//     return (
-//         <div className="p-8 bg-teal-100 min-h-screen">
-//             <div className="max-w-7xl mx-auto">
-                
-                // {/* Overview Section */}
-                // <div className="bg-white p-8 rounded-2xl shadow-xl mb-12">
-                //     <h3 className="text-2xl font-semibold text-gray-800 mb-6">Overview</h3>
-                //     <div className="flex space-x-96 items-center">
-                //         <div className="w-1/3 p-4">
-                //             {/* Line Chart */}
-                //             <ExpenseLine expenses={expenses} categories={categories} />
-                //         </div>
-                //         <div className="w-1/3 p-4">
-                //             {/* Doughnut Chart */}
-                //             <ExpenseChart expenses={expenses} categories={categories} />
-                //         </div>
-                //     </div>
-                // </div>
-
-//                 {/* Expense List */}
-//                 <div className="grid grid-cols-1 gap-6 mt-8">
-//                     {expenses.map((expense) => (
-//                         <Expense key={expense.id} expense={expense} onDelete={deleteExpense} />
-//                     ))}
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default Dashboard;
-
-
-
-
-import React, { useState, useEffect, useMemo } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHome, faPlus, faSignOutAlt, faDollarSign, faChartBar, faList, faEdit, faTrash, faFilter } from "@fortawesome/free-solid-svg-icons"
-import api from "../api"
-import { Link, useParams } from "react-router-dom"
+import React, { useState, useEffect, useMemo } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faPlus, faSignOutAlt, faDollarSign, faChartBar, faList, faEdit, faTrash, faFilter } from "@fortawesome/free-solid-svg-icons";
+import api from "../api";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import ExpenseChart from '../components/ExpenseChart'; // Doughnut chart
 import ExpenseLine from '../components/ExpenseLine';   // Line chart
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("dashboard")
+  const [activeTab, setActiveTab] = useState("dashboard");
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const renderContent = () => {
     switch (activeTab) {
       case "dashboard":
-        return <DashboardContent />
+        return <DashboardContent setShowDeletePopup={setShowDeletePopup} />;
       case "create-expense":
-        return <CreateExpense />
+        return <CreateExpense />;
       default:
-        return <DashboardContent />
+        return <DashboardContent />;
     }
-  }
+  };
 
   return (
     <div className="flex h-screen bg-teal-300">
@@ -223,20 +57,35 @@ export default function Dashboard() {
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto p-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8"></h2>
           {renderContent()}
         </div>
       </main>
+
+      {showDeletePopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+            <h2 className="text-2xl font-semibold text-teal-600 mb-4 text-center">
+              Expense Deleted Successfully!
+            </h2>
+            <p className="text-gray-700 text-center mb-6">The expense has been removed from your records.</p>
+            <button
+              onClick={() => setShowDeletePopup(false)}
+              className="w-full bg-teal-500 text-white py-3 px-5 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50 transition duration-200"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
-
-
-function DashboardContent() {
+function DashboardContent({ setShowDeletePopup }) {
   const [expenses, setExpenses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // New state for search
 
   useEffect(() => {
     getExpenses();
@@ -248,7 +97,9 @@ function DashboardContent() {
       .get("/api/expenses/")
       .then((res) => res.data)
       .then((data) => {
-        setExpenses(data);
+        // Sort expenses by created date (assuming 'created_at' field exists)
+        const sortedExpenses = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        setExpenses(sortedExpenses);
       })
       .catch((err) => alert(err));
   };
@@ -264,7 +115,7 @@ function DashboardContent() {
   };
 
   const getCategoryName = (categoryId) => {
-    const category = categories.find(cat => cat.id === categoryId);
+    const category = categories.find((cat) => cat.id === categoryId);
     return category ? category.name : "Loading...";
   };
 
@@ -273,7 +124,7 @@ function DashboardContent() {
       .delete(`/api/expenses/delete/${id}/`)
       .then((res) => {
         if (res.status === 204) {
-          alert("Expense deleted!");
+          setShowDeletePopup(true);
           getExpenses();
         } else {
           alert("Failed to delete expense.");
@@ -283,18 +134,30 @@ function DashboardContent() {
   };
 
   const toggleCategory = (categoryId) => {
-    setSelectedCategories(prev => 
+    setSelectedCategories((prev) =>
       prev.includes(categoryId)
-        ? prev.filter(id => id !== categoryId)
+        ? prev.filter((id) => id !== categoryId)
         : [...prev, categoryId]
     );
   };
 
   const filteredExpenses = useMemo(() => {
-    return selectedCategories.length === 0
-      ? expenses
-      : expenses.filter(expense => selectedCategories.includes(expense.category));
-  }, [expenses, selectedCategories]);
+    let filtered = expenses;
+
+    // Filter by selected categories
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter((expense) => selectedCategories.includes(expense.category));
+    }
+
+    // Filter by search term (search in description)
+    if (searchTerm.trim() !== "") {
+      filtered = filtered.filter((expense) =>
+        expense.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    return filtered;
+  }, [expenses, selectedCategories, searchTerm]);
 
   const totalExpenses = filteredExpenses.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
   const averageExpense = filteredExpenses.length > 0 ? totalExpenses / filteredExpenses.length : 0;
@@ -328,8 +191,8 @@ function DashboardContent() {
         </div>
       </div>
 
-                {/* Overview Section */}
-                <div className="bg-teal-100 p-8 mb-12 ">
+      {/* Overview Section */}
+        <div className="bg-teal-100 p-8 mb-12 ">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-6">Overview</h3>
                     <div className="flex space-x-64 items-center ">
                         <div className="w-1/3 p-4">
@@ -343,17 +206,26 @@ function DashboardContent() {
                     </div>
                 </div>
 
-
-      <div className="bg-teal-100 shadow-md rounded-lg overflow-hidden">
+      {/* Search and Filter Section */}
+      <div className="bg-teal-100 shadow-md rounded-lg overflow-hidden mb-6">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-800">Recent Expenses</h3>
-          <button
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-            className="flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
-          >
-            <FontAwesomeIcon icon={faFilter} className="mr-2" />
-            Filter
-          </button>
+          <div className="flex items-center">
+            <input
+              type="text"
+              placeholder="Search expenses..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+            />
+            <button
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className="ml-4 flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              <FontAwesomeIcon icon={faFilter} className="mr-2" />
+              Filter
+            </button>
+          </div>
         </div>
 
         {isFilterOpen && (
@@ -366,8 +238,8 @@ function DashboardContent() {
                   onClick={() => toggleCategory(category.id)}
                   className={`px-3 py-1 rounded-full text-sm font-medium ${
                     selectedCategories.includes(category.id)
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      ? "bg-teal-600 text-white"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
                 >
                   {category.name}
@@ -404,121 +276,121 @@ function DashboardContent() {
     </div>
   );
 }
+
 function CreateExpense() {
-    const [categories, setCategories] = useState([]);
-    const [category, setCategory] = useState("");
-    const [amount, setAmount] = useState("");
-    const [description, setDescription] = useState("");
-    const { expenseId } = useParams();
-    const [isEditMode, setIsEditMode] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState("");
+  const [description, setDescription] = useState("");
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false); // State for showing the popup
 
-    useEffect(() => {
-        getCategories();
-        if (expenseId) {
-            fetchExpenseData(expenseId);
-            setIsEditMode(true);
-        }
-    }, [expenseId]);
+  useEffect(() => {
+    getCategories();
+  }, []);
 
-    const getCategories = () => {
-        api
-            .get("/api/categories/")
-            .then((res) => res.data)
-            .then((data) => {
-                setCategories(data);
-            })
-            .catch((err) => alert(err));
+  const getCategories = () => {
+    api
+      .get("/api/categories/")
+      .then((res) => res.data)
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch((err) => alert(err));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const expenseData = {
+      category,
+      amount,
+      description,
     };
 
-    const fetchExpenseData = (id) => {
-        api
-            .get(`/api/expenses/${id}/`)
-            .then((res) => {
-                const { category, amount, description } = res.data;
-                setCategory(category);
-                setAmount(amount);
-                setDescription(description);
-            })
-            .catch((err) => alert("Failed to fetch expense data."));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const expenseData = {
-            category,
-            amount,
-            description,
-        };
-
-        if (isEditMode) {
-            api
-                .put(`/api/expenses/edit/${expenseId}/`, expenseData)
-                .then((res) => {
-                    if (res.status === 200) alert("Expense updated!");
-                    else alert("Failed to update expense.");
-                })
-                .catch((err) => alert(err));
+    api
+      .post("/api/expenses/", expenseData)
+      .then((res) => {
+        if (res.status === 201) {
+          // Show success popup on successful creation
+          setShowSuccessPopup(true);
+          // Clear form fields
+          setAmount("");
+          setDescription("");
+          setCategory("");
         } else {
-            api
-                .post("/api/expenses/", expenseData)
-                .then((res) => {
-                    if (res.status === 201) alert("Expense created!");
-                    else alert("Failed to create expense.");
-                })
-                .catch((err) => alert(err));
+          alert("Failed to create expense.");
         }
-    };
+      })
+      .catch((err) => alert(err));
+  };
 
-    return (
-      <div className="bg-teal-100 shadow-lg rounded-xl p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-              <h2 className="text-3xl font-semibold text-gray-900 mb-6">
-                  {isEditMode ? "Edit Expense" : "Create an Expense"}
-              </h2>
-              <input
-                  type="text"
-                  id="amount"
-                  name="amount"
-                  required
-                  onChange={(e) => setAmount(e.target.value)}
-                  value={amount}
-                  placeholder="Enter amount"
-                  className="w-full px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-              />
-              <input
-                  type="text"
-                  id="description"
-                  name="description"
-                  required
-                  onChange={(e) => setDescription(e.target.value)}
-                  value={description}
-                  placeholder="Enter description"
-                  className="w-full px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-              />
-              <select
-                  id="category"
-                  name="category"
-                  required
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  className="w-full bg-white px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-              >
-                  <option value="" disabled>
-                      Select a category
-                  </option>
-                  {categories.map((cat) => (
-                      <option key={cat.id} value={cat.id}>
-                          {cat.name}
-                      </option>
-                  ))}
-              </select>
-              <button
-                  type="submit"
-                  className="w-full bg-teal-500 text-white py-3 px-5 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50 transition duration-200"
-              >
-                  {isEditMode ? "Update Expense" : "Submit"}
-              </button>
-          </form>
-      </div>
+  return (
+    <div className="bg-teal-100 shadow-lg rounded-xl p-8">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <h2 className="text-3xl font-semibold text-gray-900 mb-6">
+          Create an Expense
+        </h2>
+        <input
+          type="text"
+          id="amount"
+          name="amount"
+          required
+          onChange={(e) => setAmount(e.target.value)}
+          value={amount}
+          placeholder="Enter amount"
+          className="w-full px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+        />
+        <input
+          type="text"
+          id="description"
+          name="description"
+          required
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+          placeholder="Enter description"
+          className="w-full px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+        />
+        <select
+          id="category"
+          name="category"
+          required
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="w-full bg-white px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+        >
+          <option value="" disabled>
+            Select a category
+          </option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+        <button
+          type="submit"
+          className="w-full bg-teal-500 text-white py-3 px-5 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50 transition duration-200"
+        >
+          Submit
+        </button>
+      </form>
+
+      {/* Success Popup */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+            <h2 className="text-2xl font-semibold text-teal-600 mb-4 text-center">
+              Expense Created Successfully!
+            </h2>
+            <p className="text-gray-700 text-center mb-6">The new expense has been added to your records.</p>
+            <button
+              onClick={() => setShowSuccessPopup(false)}
+              className="w-full bg-teal-500 text-white py-3 px-5 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50 transition duration-200"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

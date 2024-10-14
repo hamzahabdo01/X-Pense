@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AuthRedirect from "./components/AuthRedirect";
 import NavBar from "./components/NavBar";
-import CreateExpense from "./pages/CreateExpense";
+import EditExpense from "./pages/EditExpense";
 
 function Logout() {
   localStorage.clear();
@@ -59,8 +59,7 @@ function App() {
           }
         />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/create-expense" element={<CreateExpense />} />
-        <Route path="/edit-expense/:expenseId" element={<CreateExpense />} />
+        <Route path="/edit-expense/:expenseId" element={<EditExpense />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
