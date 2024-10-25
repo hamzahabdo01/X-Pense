@@ -2,7 +2,7 @@ import React from 'react';
 import img from '../img/undraw_projections_re_ulc6.svg'
 function Home() {
     return (
-        <div className="min-h-screen">
+        <div className="h-[850px]">
             <main className="container mx-auto flex flex-col md:flex-row items-center justify-between py-16 px-18 ml-[250px]">
                 <div className=" text-center md:text-left space-y-10">
                     <h1 className="text-8xl font-bold mb-4 tracking-tighter">Take control of <br /> your finances</h1>

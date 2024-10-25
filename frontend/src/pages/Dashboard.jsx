@@ -22,16 +22,16 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-teal-300">
+    <div className="flex h-screen bg-teal-600">
       {/* Sidebar */}
-      <aside className="w-64 bg-teal-100 shadow-md">
+      <aside className="w-64 bg-gray-100 shadow-md">
         <div className="p-4">
           <h1 className="text-2xl font-bold text-gray-800">X-Pense</h1>
         </div>
         <nav className="mt-6">
           <button
             className={`w-full flex items-center px-4 py-2 text-left ${
-              activeTab === "dashboard" ? "bg-teal-200 text-gray-800" : "text-gray-600 hover:bg-teal-300"
+              activeTab === "dashboard" ? "bg-gray-200 text-gray-800" : "text-gray-600 hover:bg-gray-300"
             }`}
             onClick={() => setActiveTab("dashboard")}
           >
@@ -40,7 +40,7 @@ export default function Dashboard() {
           </button>
           <button
             className={`w-full flex items-center px-4 py-2 text-left ${
-              activeTab === "create-expense" ? "bg-teal-200 text-gray-800" : "text-gray-600 hover:bg-teal-300"
+              activeTab === "create-expense" ? "bg-gray-200 text-gray-800" : "text-gray-600 hover:bg-gray-300"
             }`}
             onClick={() => setActiveTab("create-expense")}
           >
@@ -63,7 +63,7 @@ export default function Dashboard() {
 
       {showDeletePopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 max-w-sm w-full">
             <h2 className="text-2xl font-semibold text-teal-600 mb-4 text-center">
               Expense Deleted Successfully!
             </h2>
@@ -165,7 +165,7 @@ function DashboardContent({ setShowDeletePopup }) {
   return (
     <div className="space-y-6">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div className="bg-teal-100 p-6 rounded-lg shadow">
+        <div className="bg-gray-100 p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-medium text-gray-500">Total Expenses</h3>
             <FontAwesomeIcon icon={faDollarSign} className="h-4 w-4 text-gray-400" />
@@ -173,7 +173,7 @@ function DashboardContent({ setShowDeletePopup }) {
           <div className="text-2xl font-bold">${totalExpenses.toFixed(2)}</div>
           <p className="text-xs text-gray-500">Filtered total</p>
         </div>
-        <div className="bg-teal-100 p-6 rounded-lg shadow">
+        <div className="bg-gray-100 p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-medium text-gray-500">Average Expense</h3>
             <FontAwesomeIcon icon={faChartBar} className="h-4 w-4 text-gray-400" />
@@ -181,7 +181,7 @@ function DashboardContent({ setShowDeletePopup }) {
           <div className="text-2xl font-bold">${averageExpense.toFixed(2)}</div>
           <p className="text-xs text-gray-500">Per filtered expense</p>
         </div>
-        <div className="bg-teal-100 p-6 rounded-lg shadow">
+        <div className="bg-gray-100 p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-medium text-gray-500">Expense Categories</h3>
             <FontAwesomeIcon icon={faList} className="h-4 w-4 text-gray-400" />
@@ -192,7 +192,7 @@ function DashboardContent({ setShowDeletePopup }) {
       </div>
 
       {/* Overview Section */}
-        <div className="bg-teal-100 p-8 mb-12 ">
+        <div className="bg-gray-100 p-8 mb-12 ">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-6">Overview</h3>
                     <div className="flex space-x-64 items-center ">
                         <div className="w-1/3 p-4">
@@ -207,7 +207,7 @@ function DashboardContent({ setShowDeletePopup }) {
                 </div>
 
       {/* Search and Filter Section */}
-      <div className="bg-teal-100 shadow-md rounded-lg overflow-hidden mb-6">
+      <div className="bg-gray-100 shadow-md rounded-lg overflow-hidden mb-6">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-800">Recent Expenses</h3>
           <div className="flex items-center">
@@ -324,7 +324,7 @@ function CreateExpense() {
   };
 
   return (
-    <div className="bg-teal-100 shadow-lg rounded-xl p-8">
+    <div className="bg-gray-100 shadow-lg rounded-xl p-8">
       <form onSubmit={handleSubmit} className="space-y-6">
         <h2 className="text-3xl font-semibold text-gray-900 mb-6">
           Create an Expense
@@ -355,7 +355,7 @@ function CreateExpense() {
           required
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="w-full bg-white px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+          className="w-full bg-gray-100 px-4 py-3 border-2 border-teal-500 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
         >
           <option value="" disabled>
             Select a category
@@ -377,7 +377,7 @@ function CreateExpense() {
       {/* Success Popup */}
       {showSuccessPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 max-w-sm w-full">
             <h2 className="text-2xl font-semibold text-teal-600 mb-4 text-center">
               Expense Created Successfully!
             </h2>
