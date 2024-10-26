@@ -36,7 +36,6 @@ ALLOWED_HOSTS = [
     'backend-3772225216.dp-development-xpense-52919-3235352572',
     'localhost',
     '127.0.0.1',
-    'https://2942c67d-cc05-498a-b9e9-945d1dff39b9.e1-us-east-azure.choreoapps.dev'
 ]
 # ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1"])
 
