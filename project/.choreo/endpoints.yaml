@@ -1,21 +1,14 @@
-version: '1.0'
+version: 1.0
 
-applications:
-  - name: project-backend
-    type: backend
-    runtime: python
-    source: ./project  # Path to your Django project
-    build:
-      commands:
-        - pip install -r requirements.txt  # Install dependencies
+endpoints: 
+  - name: "Django REST API"
+    port: 8000
+    type: REST
+    networkVisibility: Public
+    context: /
     environment:
-      DJANGO_SECRET_KEY: ${SECRET_KEY}  # Your Django secret key
-      DATABASE_URL: ${DATABASE_URL}  # Supabase database URL
-      SUPABASE_URL: ${SUPABASE_URL}  # Your Supabase project URL
-      SUPABASE_KEY: ${SUPABASE_KEY}  # Your Supabase API key
-    endpoints: 
-      - name: "REST API"
-        port: 8000
-        type: REST
-        networkVisibility: Public
-        context: /
+      DJANGO_SETTINGS_MODULE: "project.settings"
+      SUPABASE_URL: "https://bytisiysknhctyflwcxh.supabase.co"
+      SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ5dGlzaXlza25oY3R5Zmx3Y3hoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI2MTc2OTEsImV4cCI6MjAzODE5MzY5MX0.XMCXlANoB-PJtVMI26F6Nl_Q-77QNm4itMV6gyQcznI"
+    build:
+      requirements: "requirements.txt"
