@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
     'backend-3772225216.dp-development-xpense-52919-3235352572',
     'localhost',
     '127.0.0.1',
+    'https://2942c67d-cc05-498a-b9e9-945d1dff39b9.e1-us-east-azure.choreoapps.dev'
 ]
 # ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1"])
 
@@ -161,6 +162,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Default primary key field type
@@ -168,9 +170,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    'https://2942c67d-cc05-498a-b9e9-945d1dff39b9.e1-us-east-azure.choreoapps.dev/',  # Your Choreo frontend URL
-    'http://localhost:5173',          # For local frontend testing (if applicable)
-]
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
-
