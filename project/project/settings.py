@@ -34,6 +34,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'backend-3772225216.dp-development-xpense-52919-3235352572',
+    'localhost',
+    '127.0.0.1',
 ]
 # ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1"])
 
