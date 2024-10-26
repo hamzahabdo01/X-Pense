@@ -171,7 +171,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'https://myfrontend.choreo.dev',  # Your Choreo frontend URL
+    'https://2942c67d-cc05-498a-b9e9-945d1dff39b9.e1-us-east-azure.choreoapps.dev/',  # Your Choreo frontend URL
     'http://localhost:5173',          # For local frontend testing (if applicable)
 ]
 CORS_ALLOWS_CREDENTIALS = True
