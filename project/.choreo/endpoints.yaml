@@ -1,10 +1,18 @@
-version: 0.1 
+version: '1.0'
 
-endpoints: 
-  - name: "REST API"
-    port: 8000
-    type: REST
-    networkVisibility: Public
-    context: /
-  
+applications:
+  - name: project-backend
+    type: backend
+    runtime: python
+    source: ./project  # Path to your Django project
+    build:
+      commands:
+        - pip install -r requirements.txt  # Install dependencies
+    environment:
+      DJANGO_SECRET_KEY: ${SECRET_KEY}  # Your Django secret key
+      DATABASE_URL: ${DATABASE_URL}  # Supabase database URL
+      SUPABASE_URL: ${SUPABASE_URL}  # Your Supabase project URL
+      SUPABASE_KEY: ${SUPABASE_KEY}  # Your Supabase API key
+    ports:
+      - port: 8000  # Django default port
   
