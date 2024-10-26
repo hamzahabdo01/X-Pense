@@ -10,5 +10,6 @@ endpoints:
       DJANGO_SETTINGS_MODULE: "project.settings"
       SUPABASE_URL: "https://bytisiysknhctyflwcxh.supabase.co"
       SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ5dGlzaXlza25oY3R5Zmx3Y3hoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI2MTc2OTEsImV4cCI6MjAzODE5MzY5MX0.XMCXlANoB-PJtVMI26F6Nl_Q-77QNm4itMV6gyQcznI"
+      CORS_ALLOWED_ORIGINS: "https://myfrontend.choreo.dev,http://localhost:5173"
     build:
       requirements: "requirements.txt"
