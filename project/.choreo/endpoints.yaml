@@ -13,6 +13,9 @@ applications:
       DATABASE_URL: ${DATABASE_URL}  # Supabase database URL
       SUPABASE_URL: ${SUPABASE_URL}  # Your Supabase project URL
       SUPABASE_KEY: ${SUPABASE_KEY}  # Your Supabase API key
-    ports:
-      - port: 8000  # Django default port
-  
+    endpoints: 
+      - name: "REST API"
+        port: 8000
+        type: REST
+        networkVisibility: Public
+        context: /
