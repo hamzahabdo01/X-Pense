@@ -60,9 +60,9 @@ function ExpenseLine({ expenses, categories }) {
         loading ? (
             <LoadingIndicator/>
         ) : (
-            <div style={{ width: '550px', height: '250px', fontFamily: 'Space Grotesk, sans-serif' }}>
-                <Line data={data} options={options} />
-            </div>
+            <div className="w-full h-64 sm:h-80 md:h-96 font-['Space_Grotesk',sans-serif]">
+            <Line data={data} options={options} />
+          </div>
         )
     );
 }

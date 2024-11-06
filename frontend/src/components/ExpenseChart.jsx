@@ -39,22 +39,24 @@ function ExpenseChart({ expenses, categories }) {
             <LoadingIndicator/>
         ) : (
             <div className="relative flex flex-col items-center bg-transparent rounded-lg p-4">
-                <Doughnut data={data} className="w-80 h-80" />
-                <div className="flex justify-center mt-4">
-                    <div className="flex items-center mr-6">
-                        <span className="bg-[#14b8a6] rounded-full w-3 h-3 inline-block"></span>
-                        <span className="ml-2">Home</span>
-                    </div>
-                    <div className="flex items-center mr-6">
-                        <span className="bg-[#99f6e4] rounded-full border border-black w-3 h-3 inline-block"></span>
-                        <span className="ml-2">Shopping</span>
-                    </div>
-                    <div className="flex items-center">
-                        <span className="bg-white rounded-full border border-black w-3 h-3 inline-block"></span>
-                        <span className="ml-2">Health</span>
-                    </div>
-                </div>
+            <div className="w-full max-w-xs aspect-square">
+              <Doughnut data={data} options={{ responsive: true, maintainAspectRatio: true }} />
             </div>
+            <div className="flex flex-wrap justify-center mt-4 gap-4">
+              <div className="flex items-center">
+                <span className="bg-[#14b8a6] rounded-full w-3 h-3 inline-block"></span>
+                <span className="ml-2 text-sm">Home</span>
+              </div>
+              <div className="flex items-center">
+                <span className="bg-[#99f6e4] rounded-full border border-black w-3 h-3 inline-block"></span>
+                <span className="ml-2 text-sm">Shopping</span>
+              </div>
+              <div className="flex items-center">
+                <span className="bg-white rounded-full border border-black w-3 h-3 inline-block"></span>
+                <span className="ml-2 text-sm">Health</span>
+              </div>
+            </div>
+          </div>
         )
     );
 }
