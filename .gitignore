@@ -1,1 +1,4 @@
 frontend/.env
+frontend/src/api.js
+project/.choreo/endpoints.yaml
+project/project/.env
